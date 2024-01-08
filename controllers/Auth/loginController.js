@@ -1,3 +1,6 @@
+import jsonWebToken from 'jsonwebtoken';
+
+
 export default class loginController{
   constructor(){}
 
@@ -7,7 +10,19 @@ export default class loginController{
     const { username, password } = req.body;
     
     if(username =="admin" & password == "admin"){
-     res.status(200).send("User OK");
+
+        let token = jsonWebToken.sign({
+            username: "admin",
+            role: "user"
+        },
+            "secret key",
+            {
+                expiresIn: "24h"
+            }
+        );
+
+
+     res.status(200).send(token);
     }
 
     res.status(401).send("User unauthorized");
