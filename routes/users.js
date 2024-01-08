@@ -6,6 +6,9 @@ import createUserController from '../controllers/User/createUserController.js';
 const createUserctrl = new createUserController();
 router.post('/user', createUserctrl.run);
 
+/*
+const getUsersctrl = new getUsersController();
+router.get('/users', getUsersctrl.run);*/
 
 
 export default router;
