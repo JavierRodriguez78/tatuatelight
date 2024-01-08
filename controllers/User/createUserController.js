@@ -7,9 +7,9 @@ export default class createUserController{
   async run(req, res){
 
     try{
-      let user = new Users();
+    
     const { username, password } = req.body;
-    let User = await user.create({username: username, password:password});
+    let User = await Users.create({username: username, password:password});
     if(User) res.status(201).send("User created");
     }catch(err){
       console.error(err);
