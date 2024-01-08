@@ -5,6 +5,7 @@ import morgan from 'morgan';
 
 import router from './router.js';
 import assignId from './middeware/assignId.js';
+import startConnection from './infrastructure/persistence/MongooseConnect.js';
 
 morgan.token('id',(req) =>req.id);
 
@@ -19,7 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(router);
 
-
+//Conection to MongoDB
+startConnection();
 
 
 export default app;
