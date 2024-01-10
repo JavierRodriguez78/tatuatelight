@@ -10,11 +10,12 @@ export default class loginController{
     try{
     const { username, password } = req.body;
     let userFound = await User.find({"username":username});
+
     if(userFound.length == 0) return res.status(401).send("User unauthorized");
     if(! await bcrypt.compare(password, userFound[0].password)) return res.status(401).send("User unauthorized");
         let token = jsonWebToken.sign({
-            username: username,
-            role: "user"
+            username: userFound[0].username,
+            role: userFound[0].role
         },
             "secret key",
             {
