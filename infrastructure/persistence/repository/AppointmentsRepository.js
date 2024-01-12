@@ -6,10 +6,13 @@ export default class AppointmentsRepository {
         this.Citas = Citas;
     }
  
-    async createAppointment(date, time, pircing, tatuaje){
+    async createAppointment(date, time, pircing, tatuaje, user){
         console.log("Recibido en el repositorio", date, time, pircing, tatuaje);
-        return await this.Citas.create({date: date, time:time, pircing:pircing, tatuaje:tatuaje});
+        return await this.Citas.create({date: date, time:time, pircing:pircing, tatuaje:tatuaje, user:user});
     }
 
+    async getAppointment(){
+        return await this.Citas.find({}).populate("user");
+    }
  
 }

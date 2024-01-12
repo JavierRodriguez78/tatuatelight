@@ -9,10 +9,9 @@ export default class createAppointmentService {
         this.UserRepository = new UserRepository();
     }
 
-    async createAppointment(date, time, pircing, tatuaje, id){
+    async getAppointment(){
        try{
-         let UserFind = await this.UserRepository.getUserById(id);
-         return this.Appointmentrepository.createAppointment(date, time, pircing, tatuaje, UserFind);
+         return this.Appointmentrepository.getAppointment();
        }catch(error){
         this.next(error);
        }

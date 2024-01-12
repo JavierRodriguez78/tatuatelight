@@ -17,6 +17,10 @@ const CitasSchema = new Schema(
         tatuaje:{
             type: Boolean,
             required: true
+        },
+        user:{
+            type: Schema.Types.ObjectId,
+            ref: "Users"
         }
    } 
 )
