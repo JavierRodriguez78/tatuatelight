@@ -15,4 +15,7 @@ export default class AppointmentsRepository {
         return await this.Citas.find({}).populate("user");
     }
  
+    async getAppointmentsByUserId(user){
+        return await this.Citas.find({user:user}).populate("user");
+    }
 }
