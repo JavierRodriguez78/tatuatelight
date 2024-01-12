@@ -11,7 +11,6 @@ export default class createUserController{
     let User= await registerUser.registerUser();
     if(User != undefined) res.status(201).send("User created");
     }catch(error){
-      console.error("Error", error);
       next(error);
     }
   }
