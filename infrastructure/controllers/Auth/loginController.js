@@ -1,6 +1,7 @@
 import jsonWebToken from 'jsonwebtoken';
 import  User  from '../../../infrastructure/persistence/models/Users.js';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv/config';
 
 export default class loginController{
   constructor(){}
@@ -18,7 +19,7 @@ export default class loginController{
             username: userFound[0].username,
             role: userFound[0].role
         },
-            "secret key",
+            process.env.AUTH_SECRET,
             {
                 expiresIn: "24h"
             }
