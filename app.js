@@ -8,7 +8,7 @@ import assignId from './infrastructure/middeware/assignId.js';
 import startConnection from './infrastructure/persistence/MongooseConnect.js';
 import errorAlreadyExist from './infrastructure/middeware/errors/errorAlreadyExist.js';
 import errorHandler from './infrastructure/middeware/errors/errorHandler.js';
-import requiredFields from './infrastructure/middeware/requiredFields.js';
+
 
 
 morgan.token('id',(req) =>req.id);

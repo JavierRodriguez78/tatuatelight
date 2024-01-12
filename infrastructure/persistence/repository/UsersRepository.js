@@ -16,4 +16,8 @@ export default class UserRepository {
     async getUserById(id){
         return await this.Users.findById(id);
     }
+
+    async getUserByUsername(username){
+        return await this.Users.findOne({"username":username});
+    }
 }

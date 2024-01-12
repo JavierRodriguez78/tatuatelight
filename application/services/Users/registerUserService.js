@@ -1,4 +1,3 @@
-import Users from "../../../infrastructure/persistence/models/Users.js";
 import bcrypt from 'bcrypt';
 import alreadyExist from "../../exceptions/alreadyExist.js";
 import UserRepository from "../../../infrastructure/persistence/repository/UsersRepository.js";
@@ -14,7 +13,7 @@ export default class registerUserService {
 
     async registerUser(){
        try{
-        let UserFind = await Users.findOne({"username": this.username});
+        let UserFind = await this.repository.getUserByUsername(this.username);
         if(UserFind) throw new alreadyExist(this.username);
         let password_encrypt = await bcrypt.hash(this.password, 10);
         let User = await this.repository.createUser(this.username, password_encrypt, "user");
