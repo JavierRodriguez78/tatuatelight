@@ -1,11 +1,9 @@
 import mongoose, {Schema} from 'mongoose';
 
-
-
-const AppointmentsSchema = new Schema(
+const CitasSchema = new Schema(
    {
         date:{
-            type: Date,
+            type: String,
             required: true
         },
         time:{
@@ -22,5 +20,5 @@ const AppointmentsSchema = new Schema(
         }
    } 
 )
-const Appointments = mongoose.model('Appointments', AppointmentsSchema);
-export default Appointments;
+const Citas = mongoose.model('Citas', CitasSchema);
+export default Citas;
