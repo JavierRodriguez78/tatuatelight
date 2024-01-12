@@ -1,6 +1,6 @@
 import Users from "../../../infrastructure/persistence/models/Users.js";
 import bcrypt from 'bcrypt';
-import userAlreadyExist from "../../../exceptions/alreadyExist.js";
+import userAlreadyExist from "../../exceptions/alreadyExist.js";
 
 export default class registerCustomerService {
   
