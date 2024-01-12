@@ -1,4 +1,4 @@
-import Users from '../../models/Users.js'
+import Users from '../../../infrastructure/persistence/models/Users.js'
 export default class createUserController{
     constructor(){}
   

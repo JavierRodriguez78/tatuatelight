@@ -1,5 +1,5 @@
 import jsonWebToken from 'jsonwebtoken';
-import  User  from '../../models/Users.js';
+import  User  from '../../../infrastructure/persistence/models/Users.js';
 import bcrypt from 'bcrypt';
 
 export default class loginController{

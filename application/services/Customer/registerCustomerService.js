@@ -1,6 +1,6 @@
-import Users from "../../models/Users.js";
+import Users from "../../../infrastructure/persistence/models/Users.js";
 import bcrypt from 'bcrypt';
-import userAlreadyExist from "../../exceptions/userAlreadyExist.js";
+import userAlreadyExist from "../../../exceptions/alreadyExist.js";
 
 export default class registerCustomerService {
   
@@ -14,7 +14,7 @@ export default class registerCustomerService {
        try{
         let UserFind = await Users.findOne({"username": this.username});
         console.log("Usuario Localizado ->", UserFind);
-        if(UserFind) throw new userAlreadyExist();
+        if(UserFind) throw new alreadyExist();
         let password_encrypt = await bcrypt.hash(this.password, 10);
         let User = await Users.create({username: this.username, password:password_encrypt, role:"customer"});
         return User;

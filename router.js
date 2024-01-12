@@ -1,8 +1,8 @@
 import  express  from 'express';
-import  tatuaje from './routes/tatuatelight.js';
-import  users from './routes/users.js';
-import login from './routes/auth.js';
-import customer from './routes/customer.js';
+import  tatuaje from './infrastructure/routes/tatuatelight.js';
+import  users from './infrastructure/routes/users.js';
+import login from './infrastructure/routes/auth.js';
+import customer from './infrastructure/routes/customer.js';
 const router = express.Router();
 
 router.use('/hola', tatuaje);

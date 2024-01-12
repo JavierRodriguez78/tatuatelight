@@ -1,5 +1,4 @@
-import registerCustomerService from '../../services/Customers/registerCustomerService.js';
-
+import registerCustomerService from '../../../application/services/Customer/registerCustomerService.js';
 export default class createCustomerController{
   constructor(){}
 
