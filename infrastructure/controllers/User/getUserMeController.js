@@ -5,7 +5,6 @@ export default class getUserMeController{
 
     async run(req, res, next){
         try{
-            if(req.role!="user") return res.status(403).send("User unauthorized!!");
             let getUserSrv = new getUserService(next);
             console.log(req.id);
             let user = await getUserSrv.getUser(req.id);
