@@ -1,12 +1,10 @@
 
 import express from 'express';
-import auth from '../middeware/auth.js';
+import requiredFields from '../middeware/requiredFields.js';
 const router = express.Router();
 
 import createCustomerController from '../controllers/Customer/createCustomerController.js';
 
 const createCustomerctrl = new createCustomerController();
-router.post('/', createCustomerctrl.run);
-//router.get('/', auth, getCustomerctrl.run);
-
+router.post('/', requiredFields(["username","password"]), createCustomerctrl.run);
 export default router;

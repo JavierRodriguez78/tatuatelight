@@ -7,8 +7,8 @@ export default class createUserController{
     try{
     
     const { username, password } = req.body;
-    let registerUser = new registerUserService(username, password, next);
-    let User= await registerUser.registerUser();
+    let registerUserSrv = new registerUserService(username, password, next);
+    let User= await registerUserSrv.registerUser();
     if(User != undefined) res.status(201).send("User created");
     }catch(error){
       next(error);

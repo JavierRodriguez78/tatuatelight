@@ -1,11 +1,18 @@
-import Users from '../../../infrastructure/persistence/models/Users.js'
+
+import getUsersService from '../../../application/services/Users/getUsersService.js'
+
 export default class createUserController{
-    constructor(){}
+    constructor(){
+    }
   
     async run(req, res, next){
-  
-      if(req.role!="user") return res.status(403).send("User unauthorized!!");
-      let UsersFound = await Users.find({role:"user"});
-      res.status(200).send(UsersFound);
-  }
+      try{
+        if(req.role!="user") return res.status(403).send("User unauthorized!!");
+        let getUsersSrv = new getUsersService(next);
+        let UsersFound = await getUsersSrv.getUsers();
+        res.status(200).send(UsersFound);
+      }catch(error){
+        console.error(error);
+      }
+    }
 } 

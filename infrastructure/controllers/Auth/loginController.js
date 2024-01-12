@@ -14,6 +14,7 @@ export default class loginController{
     if(userFound.length == 0) return res.status(401).send("User unauthorized");
     if(! await bcrypt.compare(password, userFound[0].password)) return res.status(401).send("User unauthorized");
         let token = jsonWebToken.sign({
+            id: userFound[0]._id,
             username: userFound[0].username,
             role: userFound[0].role
         },

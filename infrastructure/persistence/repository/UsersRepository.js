@@ -9,6 +9,11 @@ export default class UserRepository {
         return await this.Users.create({username: username, password:password, role:role});
     }
 
+    async getUsers(){
+        return await this.Users.find();
+    }
 
-
+    async getUserById(id){
+        return await this.Users.findById(id);
+    }
 }

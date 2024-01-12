@@ -9,6 +9,7 @@ export default function auth(req, res, next) {
         if(err) res.status(500).json({message:"Error Token ->" + err });
         req.user= decoded.username;
         req.role= decoded.role;
+        req.id = decoded.id;
         next();
     })
   
